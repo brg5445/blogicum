@@ -131,6 +131,8 @@ def edit_comment(request, post_id, comment_id):
                'form': form}
     return render(request, 'blog/comment.html', context)
 
+
+
 @login_required
 def delete_comment(request, post_id, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
@@ -140,6 +142,8 @@ def delete_comment(request, post_id, comment_id):
         comment.delete()
         return redirect('blog:post_detail', post_id)
     context = {'comment': comment}
+
+
     return render(request, 'blog/comment.html', context)
 
 def profile(request, username):
